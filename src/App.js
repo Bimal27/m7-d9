@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Reservations from './components/Reservations'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Menu from './components/Menu'
+import DishDetail from './components/DishDetail'
 
 function App() {
   return (
@@ -30,6 +31,12 @@ function App() {
       {/* Route is a HOC -> High Order Component */}
       {/* Route will give our components 3 additional props: history, location and match */}
       <Route path="/reservations" exact component={Reservations} />
+      {/* let's create a dynamic route */}
+      <Route component={DishDetail} path="/details/:id" />
+      {/* localhost:3000/details/0 */}
+      {/* localhost:3000/details/1 */}
+      {/* localhost:3000/details/whatever */}
+      {/* all these three routes will load DishDetail */}
     </Router>
   )
 }

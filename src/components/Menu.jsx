@@ -3,11 +3,12 @@ import items from '../data/menu.json'
 
 // const smallMenu = items.slice(0, 2)
 
-const Menu = () => (
+const Menu = ({ history }) => (
     <Container>
         {
-            items.filter(d => d.price < 7).map(dish => (
-                <Row className="justify-content-center my-3">
+            // items.filter(d => d.price < 7).map(dish => (
+            items.map(dish => (
+                <Row onClick={() => history.push('/details/' + dish.id)} key={dish.id} className="justify-content-center my-3">
                     <Col md={8} className="text-center">
                         <img src={dish.image} alt="dish" />
                         <h4>{dish.name}</h4>
